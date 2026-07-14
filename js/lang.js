@@ -13,8 +13,8 @@ const translations = {
     "Aug 2026": "أغسطس 2026",
     "Ceremony": "المراسم",
     "in the evening": "مساءً",
-    "Locations": "الأماكن",
-    "Giza-Zamalek": "الجيزة والزمالك",
+    "Location": "المكان",
+    "Giza": "الجيزة",
     "Cairo · Egypt": "القاهرة · مصر",
 
     // Photo reveal
@@ -43,10 +43,10 @@ const translations = {
 
     // Location
     "where it happens": "حيث يتم الحدث",
-
+    "The Church": "الكنيسة",
+    "6:00 PM — 7:00 PM": "6:00 مساءً — 7:00 مساءً",
     "open in maps": "افتح في الخرائط ←",
-    "Wedding Hall": "قاعة الزفاف",
-    "8:00 PM — 12:00 AM": "8:00 مساءً — 12:00 صباحاً",
+
 
     // Gallery
     "moments": "لحظات",
@@ -97,8 +97,8 @@ const translations = {
     "Aug 2026": "Aug 2026",
     "Ceremony": "Ceremony",
     "in the evening": "in the evening",
-    "Locations": "Locations",
-    "Giza-Zamalek": "Giza & Zamalek",
+    "Location": "Location",
+    "Giza": "Giza",
     "Cairo · Egypt": "Cairo · Egypt",
 
     // Photo reveal
@@ -127,10 +127,10 @@ const translations = {
 
     // Location
     "where it happens": "where it happens",
-
+    "The Church": "The Church",
+    "6:00 PM — 7:00 PM": "6:00 PM — 7:00 PM",
     "open in maps": "open in maps →",
-    "Wedding Hall": "Wedding Hall",
-    "8:00 PM — 12:00 AM": "8:00 PM — 12:00 AM",
+
 
     // Gallery
     "moments": "moments",

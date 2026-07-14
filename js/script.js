@@ -164,7 +164,32 @@
     var playSvg = '<svg width="14" height="14" viewBox="0 0 24 24" fill="var(--burgundy)"><path d="M8 5v14l11-7z"/></svg>';
     var barsSvg = '<span class="audio-bars"><span></span><span></span><span></span></span>';
 
-    btn.addEventListener('click', function () {
+    function startMusic() {
+      if (playing) return;
+      audio.volume = 0;
+      var p = audio.play();
+      if (p !== undefined) {
+        p.then(function() {
+          var v2 = 0;
+          var fade2 = setInterval(function () {
+            v2 = Math.min(0.45, v2 + 0.04);
+            audio.volume = v2;
+            if (v2 >= 0.45) clearInterval(fade2);
+          }, 60);
+          playing = true;
+          icon.innerHTML = barsSvg;
+          label.textContent = (typeof translations !== 'undefined' && document.documentElement.lang === 'ar') ? translations.ar['playing'] : 'playing';
+          btn.setAttribute('aria-label', 'Pause music');
+        }).catch(function() {});
+      }
+    }
+
+    startMusic();
+    document.body.addEventListener('click', startMusic, { once: true });
+    document.body.addEventListener('touchstart', startMusic, { once: true });
+
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
       if (playing) {
         var v = audio.volume;
         var fade = setInterval(function () {
@@ -177,19 +202,7 @@
         label.textContent = (typeof translations !== 'undefined' && document.documentElement.lang === 'ar') ? translations.ar['music'] : 'music';
         btn.setAttribute('aria-label', 'Play music');
       } else {
-        audio.volume = 0;
-        var p = audio.play();
-        if (p && typeof p.catch === 'function') p.catch(function () {});
-        var v2 = 0;
-        var fade2 = setInterval(function () {
-          v2 = Math.min(0.45, v2 + 0.04);
-          audio.volume = v2;
-          if (v2 >= 0.45) clearInterval(fade2);
-        }, 60);
-        playing = true;
-        icon.innerHTML = barsSvg;
-        label.textContent = (typeof translations !== 'undefined' && document.documentElement.lang === 'ar') ? translations.ar['playing'] : 'playing';
-        btn.setAttribute('aria-label', 'Pause music');
+        startMusic();
       }
     });
   })();
